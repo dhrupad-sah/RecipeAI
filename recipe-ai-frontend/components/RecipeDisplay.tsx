@@ -34,23 +34,23 @@ const RecipeDisplay: React.FC<RecipeDisplayProps> = ({ recipeData }) => {
   const tips = tipsStart > -1 ? parseList(content.slice(tipsStart + 1).join('\n')) : []
 
   return (
-    <Card className="mt-8">
+    <Card className="mt-12">
       <CardHeader>
-        <CardTitle className="text-2xl">{recipeTitle}</CardTitle>
+        <CardTitle className="text-4xl">{recipeTitle}</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-8">
         <div>
-          <h3 className="text-xl font-semibold mb-2">Ingredients:</h3>
-          <ul className="list-disc pl-5 space-y-1">
+          <h3 className="text-2xl font-semibold mb-4">Ingredients:</h3>
+          <ul className="list-disc pl-8 space-y-2 text-xl">
             {ingredients.map((ingredient, index) => (
               <li key={index}>{ingredient}</li>
             ))}
           </ul>
         </div>
-        <Separator />
+        <Separator className="my-8" />
         <div>
-          <h3 className="text-xl font-semibold mb-2">Instructions:</h3>
-          <ol className="list-decimal pl-5 space-y-2">
+          <h3 className="text-2xl font-semibold mb-4">Instructions:</h3>
+          <ol className="list-decimal pl-8 space-y-4 text-xl">
             {instructions.map((instruction, index) => (
               <li key={index}>{instruction}</li>
             ))}
@@ -58,10 +58,10 @@ const RecipeDisplay: React.FC<RecipeDisplayProps> = ({ recipeData }) => {
         </div>
         {tips.length > 0 && (
           <>
-            <Separator />
+            <Separator className="my-8" />
             <div>
-              <h3 className="text-xl font-semibold mb-2">Tips:</h3>
-              <ul className="list-disc pl-5 space-y-1">
+              <h3 className="text-2xl font-semibold mb-4">Tips:</h3>
+              <ul className="list-disc pl-8 space-y-2 text-xl">
                 {tips.map((tip, index) => (
                   <li key={index}>{tip}</li>
                 ))}

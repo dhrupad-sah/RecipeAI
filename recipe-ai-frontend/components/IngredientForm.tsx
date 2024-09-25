@@ -36,39 +36,45 @@ const IngredientForm: React.FC<IngredientFormProps> = ({ onRecipeGenerated }) =>
   }
 
   return (
-    <Card className="mt-8">
+    <Card className="mt-12">
       <CardHeader>
-        <CardTitle>Enter Your Ingredients</CardTitle>
-        <CardDescription>Provide ingredients and any special instructions</CardDescription>
+        <CardTitle className="text-3xl">Enter Your Ingredients</CardTitle>
+        <CardDescription className="text-xl">Provide ingredients and any special instructions</CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="ingredients">Ingredients</Label>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-3">
+            <Label htmlFor="ingredients" className="text-xl">Ingredients</Label>
             <Textarea 
               id="ingredients"
               placeholder="Enter ingredients (comma-separated)" 
               value={ingredients}
               onChange={(e) => setIngredients(e.target.value)}
-              className="min-h-[100px]"
+              className="min-h-[150px] text-lg"
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="instructions">Special Instructions (optional)</Label>
+          <div className="space-y-3">
+            <Label htmlFor="instructions" className="text-xl">Special Instructions (optional)</Label>
             <Input 
               id="instructions"
               placeholder="E.g., vegetarian, low-carb, spicy" 
               value={instructions}
               onChange={(e) => setInstructions(e.target.value)}
+              className="text-lg"
             />
           </div>
         </form>
       </CardContent>
       <CardFooter>
-        <Button type="submit" disabled={isLoading} onClick={handleSubmit} className="w-full">
+        <Button 
+          type="submit" 
+          disabled={isLoading} 
+          onClick={handleSubmit} 
+          className="w-full text-xl py-6"
+        >
           {isLoading ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <Loader2 className="mr-2 h-6 w-6 animate-spin" />
               Generating Recipe...
             </>
           ) : (
