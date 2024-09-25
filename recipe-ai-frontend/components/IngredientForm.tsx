@@ -19,7 +19,7 @@ const IngredientForm: React.FC<IngredientFormProps> = ({ onRecipeGenerated }) =>
     e.preventDefault()
     setIsLoading(true)
     try {
-      const response = await fetch('http://localhost:8000/get_recipe', {
+      const response = await fetch('https://deployed-recipeai-server-production.up.railway.app/get_recipe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
